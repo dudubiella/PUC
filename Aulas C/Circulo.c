@@ -1,35 +1,34 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-bool valido = false;
+bool valido;
 float raio, area;
 const pi = 3.1415;
+int escolha, raio;
 
 bool defarea(){
-    printf("defina o raio a ser calculado a area do circulo:\n\n");
-    scanf("%d", &raio);
-    while(raio != 0){
+    valido = false;
+    while(valido != true){
+        printf("Defina o raio a ser calculado a area do circulo:\n\n");
+        scanf("%d", &raio);
         if(raio < 0){
             printf("Valor invalido para se calcular a area, tente novamente\n\nDefina o raio a ser calculado a area do circulo:\n\n"); 
         }
         else{
             area = pi * raio * raio;
-            prinf("a area do circulo com raio igual a %.1f é de %.2f\n", raio, area);
+            prinf("A area do circulo com raio igual a %.1f é de %.2f\n", raio, area);
+            valido = true;
         }
-        scanf("%d", &raio);
     }
-    return true;
+    return;
 }
 
 void main(){
-    int escolha, raio;
-    
     do{
-    printf("escolha o que deseja fazer dentre as opções a seguir:\n 1-area do circulo baseado em seu raio\n\n");
+    printf("Escolha o que deseja fazer dentre as opções a seguir:\n 1-Area do circulo baseado em seu raio\n 2-...\n 0-Sair\n\n");
     scanf("%d", &escolha);
     if (escolha == 1){
-        valido = defarea();
+        defarea();
         }
-    } while(valido != true);
+    } while(escolha != 0);
 }
-main()
